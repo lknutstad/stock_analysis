@@ -1,4 +1,4 @@
-# Stock Analysis Product
+# Stock Analysis Program Refactoring
 
 ## Overview of Project
 Steve, a financial analyst, recently acquired a new customer and is reviewing their renewable energy stock portfolio.  He recognizes a need for better diversification of their funds.
@@ -7,7 +7,7 @@ Steve, a financial analyst, recently acquired a new customer and is reviewing th
 Steve needs a tool that can effecienctly analyse all stocks of interest so he can better inform his clients of their diversification options.  Steve's existing program is not optmized for high throughput analysis.  His code needs to be refactored for optimized computational performance to decrease run time.
 
 ## Results
-**The original code: **
+## The original code:
 
     Sub allstockanalysis()
 
@@ -136,11 +136,16 @@ Steve needs a tool that can effecienctly analyse all stocks of interest so he ca
     
     End Sub
 
-Analyzing all stocks by year (2017 vs 2018) as a test analysis we see clearly see different annual performances between years.
+- To test steve's original program, an analysis of all stocks by year (2017 vs 2018) is used. A clear difference in annual performance between years is observed. Steve's original code needed approximate 0.55 seconds to run these analyses.
 
-Steve's original code needed the following run time to make these analyses:
+![image](https://user-images.githubusercontent.com/16930677/118395531-c321eb00-b5ff-11eb-9d6e-03e9a3aba6ba.png)
+![image](https://user-images.githubusercontent.com/16930677/118395523-b8ffec80-b5ff-11eb-89fe-12eb47476f7e.png)
 
-**The refactored code for high throughput analysis:**
+
+
+
+
+## The refactored code:
 
     Sub AllStocksAnalysisRefactored()
     
@@ -279,19 +284,18 @@ Steve's original code needed the following run time to make these analyses:
 
     End Sub
 
-Analyzing all stocks by year (2017 vs 2018) again with the refactored code, we see the same results - a different annual performances between years.  The refactored code is still producing the same analysis
+- Analyzing all stocks by year again with the refactored code, we see the same results - a different annual performances between years.  The refactored code is still producing the same analysis. However, the refactored code needed only 0.1 seconds (5x less than original) run time to make these analyses:
+![image](https://user-images.githubusercontent.com/16930677/118395547-dd5bc900-b5ff-11eb-9e14-06d12e44db03.png)
 
-However, the refactored code needed less run time to make these analyses:
+
+
 
 
 
 ## Summary
 
-- Decemeber is the worst month for launching a theater kickstarter campaign with the number of successful campaigns roughly equal to the number of failed campaigns.
-- May is the best month for launching a theater kickstarter campaign with the number of successful campaigns roughly 2.15x the number of failed campaigns
+Refactoring code is an important step in developing a robust program for analysis and this project for Steve demonstrates that.  After refactoring, the original program was 5 times faster due to a combination of several factors - fewer lines of code, less memory used, etc.  
 
-- Setting a financial fundraising goal lower than 1500 improves your likelihood of success for success.
+One major area for refactoring Steve's orginal program was in the "for" loop.  The original code contained several steps inside the "for" loop where as the reafactored code broke that large loop down into several smaller loops and pre loop steps.  With the program running 5 times faster, this allows Steve to run 5 times more data!
 
-- Some limitations of the data set are the non-normalcy (right skewed) of the data when filtering by financial fundraising goal amount.  This decrease our sample size for campaigns above $1500.
 
-- Other vairables not studied are country of origin, percentage by backer, and year over year trends.
